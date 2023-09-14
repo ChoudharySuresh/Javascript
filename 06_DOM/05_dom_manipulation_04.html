@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation 4</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+
+    <script>
+        //  +++++++ How to add an li item +++++++
+        function addLanguage(languageName){
+            const langName = document.createElement("li");
+            langName.innerHTML = languageName;
+            document.querySelector(".language").appendChild(langName);
+        }
+
+        addLanguage("Python");
+        addLanguage("Java");
+        addLanguage("Golang");
+
+        // ++++ Optimised Way to Add an Element 
+        function optimisedAddLanguage(languageName){
+            const langName = document.createElement("li");
+            langName.appendChild(document.createTextNode(languageName));
+            document.querySelector(".language").appendChild(langName);
+        }
+
+        optimisedAddLanguage("cpp");
+        optimisedAddLanguage("Flutter");
+
+        // +++++  Different Ways to Edit an element ++++++
+
+        // 1st way to edit an element
+        // const secondLang = document.querySelector("li:nth-child(2)");
+        // secondLang.innerHTML = "Mojo";
+
+
+        //  2nd way to edit an element
+        // const secondLang = document.querySelector("li:nth-child(2)");
+        // const newLi = document.createElement("li");
+        // newLi.textContent = "Mojo"
+        // secondLang.replaceWith(newLi);
+        
+        // 3rd Way to edit an element
+        const firstLang = document.querySelector("li:first-child");
+        firstLang.outerHTML = "<li>TypeScript</li>";
+
+        // +++++++++++++++  Remove +++++++++++
+        const lastLang = document.querySelector("li:last-child");
+        lastLang.remove();
+
+    </script>
+</body>
+</html>
