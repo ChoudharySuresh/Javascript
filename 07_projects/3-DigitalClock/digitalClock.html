@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        .clock{
+            /* height: 1rem; */
+            width: 10rem;
+            background-color: orange;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .clock-wrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar">
+            <a href="/index.html"> <button id="home-btn">Home</button></a>
+            <a href="/index.html"> <button>Github</button></a>
+        </div>
+    </div>
+   
+    <div class="center">
+        <div class="clock-wrapper">
+            <p>Your Local Time</p>
+            <div class="clock"></div>
+        </div>
+    </div>
+    <script src="digitalClock.js"></script>
+</body>
+</html>
