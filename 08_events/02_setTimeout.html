@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetTimeout</title>
+</head>
+<body>
+    <h1>Suresh Choudhary</h1>
+    <button id="start">Start</button>
+</body>
+<script>
+    const changeText = function(){
+        document.querySelector("h1").innerHTML = "JS is Beast";
+    }
+
+    const id = setTimeout(changeText , 2000);
+
+    document.querySelector("#start").addEventListener("click" , function(){
+        clearTimeout(id);
+        console.log("STOPPED");
+    })
+</script>
+</html>
