@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexical Scoping and Closure</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">green</button>
+</body>
+<script>
+
+    // +++++ MDN Example +++++++
+    // function init() {
+        //     var name = "Mozilla"; 
+        //     function displayName() {
+    //         console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // function outer(){
+        //     let name = "suresh";
+    //     console.log("Outer",secret); // we cannot access from inner function
+    //     function inner(){
+        //         let secret = "secret123"
+    //         console.log("inner" , name);
+    //     }
+    
+    //     function innerTwo(){
+    //         console.log("inner Two" , name);
+    //         console.log(secret);
+    //     }
+    
+    //     inner();
+    //     innerTwo();
+    // }
+    
+    // outer();
+    // console.log("Too Outer" , name);
+    
+    
+    // A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
+    function makeFunc() {
+        const name = "Mozilla";
+
+        function displayName() {
+            console.log(name);
+        }
+
+        return displayName; // here not only displayname function is returned but it parent lexical scope also
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+
+</script>
+
+<script>
+    // Real word scenerio add two button and change body's background 
+
+    // document.getElementById("orange").onclick = function (){
+    //     document.body.style.backgroundColor = `orange`;
+    // }
+    // document.getElementById("green").onclick = function (){
+    //     document.body.style.backgroundColor = `green`;
+    // }
+
+    // what if i will tell you to create 100 button then ? -> closure is used
+
+    function onclickHandler(color){
+        
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+
+    document.getElementById("orange").onclick = onclickHandler("orange")
+    document.getElementById("green").onclick = onclickHandler("green")
+</script>
+</html>
